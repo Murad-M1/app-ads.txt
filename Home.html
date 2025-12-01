@@ -3,93 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support – M4DOOM Games</title>
+  <title>M4DOOM Games – Home</title>
+
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
     :root {
       --accent: #ffb400;
-      --bg: #f8f9fb;
-      --text: #333;
+      --accent2: #ff7a00;
+      --bg1: #1a1a1d;
+      --bg2: #222226;
+      --text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      margin: 0;
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
       color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
       padding: 20px;
     }
 
-    .container {
+    /* Floating animated shapes */
+    .shape {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      filter: blur(80px);
+      opacity: 0.55;
+      border-radius: 50%;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .shape:nth-child(1) { top: 5%; left: 10%; animation-duration: 14s; }
+    .shape:nth-child(2) { bottom: 10%; right: 5%; animation-duration: 12s; }
+    .shape:nth-child(3) { top: 40%; right: 20%; animation-duration: 18s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-40px) translateX(30px); }
+    }
+
+    /* Glassmorphism container */
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 650px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 25px;
+      padding: 45px;
       text-align: center;
-      max-width: 600px;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      z-index: 10;
+      animation: fadeIn 1.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      font-size: 1.8em;
-      margin-bottom: 0.4em;
-      color: var(--accent);
+      font-size: 2.3em;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     p {
-      font-size: 1em;
+      margin: 12px 0;
       line-height: 1.6;
-      margin: 10px 0;
+      font-size: 1.05em;
+      opacity: 0.9;
     }
 
-    a, button {
-      background: var(--accent);
+    /* Animated buttons */
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 12px;
       color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      margin: 10px 5px 0 5px;
+      font-weight: 600;
+      margin: 12px 8px 0 8px;
       text-decoration: none;
       font-size: 1em;
-      display: inline-block;
-      transition: background 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    a:hover, button:hover {
-      background: #ffaa00;
+    .btn:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
     }
 
     footer {
-      margin-top: 20px;
+      margin-top: 25px;
+      opacity: 0.7;
       font-size: 0.85em;
-      color: #888;
     }
 
     @media (max-width: 600px) {
-      .container {
-        padding: 25px;
-      }
+      .card { padding: 32px; }
+      h1 { font-size: 1.9em; }
     }
   </style>
+
 </head>
 <body>
-  <div class="container">
-    <h1>Support</h1>
-    <p>Welcome to the official support page for <strong>M4DOOM GAMES</strong> 🐹🎮</p>
-    <p>If you encounter any issues, feedback, or just want to say hi, contact us at:</p>
-    <p><a href="mailto:m4doom.support@gmail.com">m4doom.support@gmail.com</a></p>
 
-    <!-- Buttons -->
-    <div>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="https://m4doom.itch.io/" target="_blank">Visit Our Itch.io</a>
-    </div>
+  <!-- Animated background shapes -->
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
 
-    <footer>&copy; 2025 M4DOOM Studio. All rights reserved.</footer>
+  <!-- Main Card -->
+  <div class="card">
+    <h1>M4DOOM GAMES</h1>
+    <p>Welcome to the official home of <strong>M4DOOM Studio</strong> 🎮  
+    Creators of fun, chaotic, and unforgettable mobile games.</p>
+
+    <p>If you need support or want to reach out, contact us:</p>
+    <p>
+      <a href="mailto:m4doom.support@gmail.com" class="btn">Contact Support</a>
+    </p>
+
+    <p style="margin-top:20px;font-weight:600;">Quick Links</p>
+    <a href="privacy.html" class="btn">Privacy Policy</a>
+    <a href="https://m4doom.itch.io/" target="_blank" class="btn">Our Games</a>
+
+    <footer>&copy; 2025 M4DOOM Studio — All Rights Reserved.</footer>
   </div>
+
 </body>
 </html>
